@@ -10,8 +10,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        println("NM: MainActivity")
-
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
         finish()

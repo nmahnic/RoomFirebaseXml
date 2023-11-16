@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.nicomahnic.presentation.R
+import com.nicomahnic.presentation.databinding.FragmentDetailsBinding
 
 class DetailsFragment : Fragment(R.layout.fragment_details) {
 
+    private lateinit var binding: FragmentDetailsBinding
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        println("NM: DetailsFragment")
+        binding = FragmentDetailsBinding.bind(view)
     }
 
 }
