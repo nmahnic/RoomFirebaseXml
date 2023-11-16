@@ -1,12 +1,12 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'com.google.devtools.ksp'
+    id 'kotlin-kapt'
 }
 
 android {
     namespace 'com.nicomahnic.data.feature_users'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 28
@@ -34,10 +34,13 @@ dependencies {
 
     implementation 'androidx.core:core-ktx:1.12.0'
 
+    // Koin
+    api "io.insert-koin:koin-core:3.5.0"
+
     // Persistence
     implementation("androidx.room:room-runtime:2.6.0")
     implementation("androidx.room:room-ktx:2.6.0")
-    ksp("androidx.room:room-compiler:2.6.0")
+    kapt("androidx.room:room-compiler:2.6.0")
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
