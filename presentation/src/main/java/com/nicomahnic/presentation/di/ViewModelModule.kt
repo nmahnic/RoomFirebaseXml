@@ -8,7 +8,10 @@ object ViewModelModule {
 
     val modules = module {
         viewModel {
-            HomeViewModel(getUsersUseCase = get())
+            HomeViewModel(
+                getUsersUseCase = get(),
+                insertUsersUseCase = get()
+            )
         }
 //        viewModelOf(::HomeViewModel)
     }

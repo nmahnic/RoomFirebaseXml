@@ -1,6 +1,6 @@
 package com.nicomahnic.domain.model
 
 data class User(
-    val id: Long,
-    val name: String
+    val name: String,
+    val id: Long = 0
 )

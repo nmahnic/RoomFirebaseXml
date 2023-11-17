@@ -7,6 +7,9 @@ class GetUsersUseCaseImpl(
     private val userRepository: UserRepository
 ) : GetUsersUseCase {
 
-    override suspend fun getUsers() : List<User> = userRepository.getUsers()
+    override suspend fun invoke(): List<User> {
+        println("NM: GetUsersUseCaseImpl")
+        return userRepository.getUsers()
+    }
 
 }
