@@ -8,6 +8,7 @@ import com.nicomahnic.domain.model.User
 class LocalUserDataSourceImpl(
     private val userDao: UserDao
 ) : LocalUserDataSource {
+
     override suspend fun getUsers(): List<User> {
         println("NM: LocalUserDataSource getUsers")
         return userDao.getUsers().map {

@@ -38,7 +38,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             return users.toList()
         }
 
-        private fun getRandomInt() : Int = (0..5).random()
+        private fun getRandomInt() : Int = (0..1).random()
         private fun getRandomString() : String {
             val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9')
             return (1..8)

@@ -2,6 +2,8 @@ package com.nicomahnic.roomfirebasexml
 
 import android.app.Application
 import com.nicomahnic.data.feature_users.di.RoomModule
+import com.nicomahnic.data.feature_users.di.UserFirebaseModule
+import com.nicomahnic.data.feature_users.di.UserRepositoryModule
 import com.nicomahnic.data.feature_users.di.UserRoomModule
 import com.nicomahnic.domain.di.UserUseCasesModule
 import com.nicomahnic.presentation.di.ViewModelModule
@@ -18,6 +20,8 @@ class RoomFirebaseXmlApp : Application() {
             androidContext(this@RoomFirebaseXmlApp)
             modules(listOf(
                 RoomModule.modules,
+                UserRepositoryModule.modules,
+                UserFirebaseModule.modules,
                 UserRoomModule.modules,
                 UserUseCasesModule.modules,
                 ViewModelModule.modules
