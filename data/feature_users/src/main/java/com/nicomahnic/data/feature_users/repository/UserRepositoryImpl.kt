@@ -20,4 +20,10 @@ class UserRepositoryImpl(
         return localUserDataSource.insertUser(user)
     }
 
+    override suspend fun deleteUsers() {
+        println("NM: UserRepositoryImpl deleteUsers")
+        remoteUserDataSource.deleteUsers()
+        localUserDataSource.deleteUsers()
+    }
+
 }

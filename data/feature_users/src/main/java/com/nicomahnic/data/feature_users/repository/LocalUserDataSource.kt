@@ -6,4 +6,6 @@ interface LocalUserDataSource {
     suspend fun getUsers() : List<User>
 
     suspend fun insertUser(user: User) : Long
+
+    suspend fun deleteUsers()
 }

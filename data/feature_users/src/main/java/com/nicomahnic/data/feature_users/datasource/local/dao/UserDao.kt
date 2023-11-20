@@ -12,4 +12,8 @@ interface UserDao {
 
     @Insert
     suspend fun insertUser(user: UserEntity) : Long
+
+    @Query("DELETE FROM users")
+    suspend fun deleteUser()
+
 }

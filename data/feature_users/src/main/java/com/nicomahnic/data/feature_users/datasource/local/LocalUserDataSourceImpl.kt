@@ -9,6 +9,11 @@ class LocalUserDataSourceImpl(
     private val userDao: UserDao
 ) : LocalUserDataSource {
 
+    override suspend fun deleteUsers() {
+        println("NM: LocalUserDataSource deleteUsers")
+        userDao.deleteUser()
+    }
+
     override suspend fun getUsers(): List<User> {
         println("NM: LocalUserDataSource getUsers")
         return userDao.getUsers().map {

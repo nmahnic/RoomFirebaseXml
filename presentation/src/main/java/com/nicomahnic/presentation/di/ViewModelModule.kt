@@ -10,7 +10,8 @@ object ViewModelModule {
         viewModel {
             HomeViewModel(
                 getUsersUseCase = get(),
-                insertUsersUseCase = get()
+                insertUsersUseCase = get(),
+                deleteUsersUseCase = get()
             )
         }
 //        viewModelOf(::HomeViewModel)

@@ -2,6 +2,15 @@ package com.nicomahnic.presentation.home
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Text
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import com.nicomahnic.domain.model.User
 import com.nicomahnic.presentation.R
@@ -26,11 +35,33 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.getBtn.setOnClickListener {
             viewModel.getUsers()
         }
+
+        binding.deleteBtn.setOnClickListener {
+            viewModel.deleteUsers()
+        }
+
+        binding.otherBtn.setOnClickListener {
+            Toast.makeText(requireContext(), "TODO", Toast.LENGTH_LONG).show()
+        }
+
+        binding.composeView.setContent {
+            val usersState by viewModel.uiState.collectAsState()
+
+
+            Column {
+                Text(text = "Users:", fontWeight = FontWeight.Bold, fontSize = 25.sp)
+                LazyColumn {
+                    items(usersState.users) {
+                        Text(it.toString(), fontSize = 15.sp)
+                    }
+                }
+            }
+        }
     }
 
     companion object {
 
-        private fun generateUserList() : List<User> {
+        private fun generateUserList(): List<User> {
             val users = mutableListOf<User>()
             repeat(getRandomInt()) {
                 users.add(User(getRandomString()))
@@ -38,8 +69,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             return users.toList()
         }
 
-        private fun getRandomInt() : Int = (0..1).random()
-        private fun getRandomString() : String {
+        private fun getRandomInt(): Int = (0..5).random()
+        private fun getRandomString(): String {
             val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9')
             return (1..8)
                 .map { allowedChars.random() }

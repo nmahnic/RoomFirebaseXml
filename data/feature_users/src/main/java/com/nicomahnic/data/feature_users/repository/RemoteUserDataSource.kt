@@ -6,4 +6,6 @@ interface RemoteUserDataSource {
     suspend fun getUsers() : List<User>
 
     suspend fun insertUser(user: User)
+
+    suspend fun deleteUsers()
 }

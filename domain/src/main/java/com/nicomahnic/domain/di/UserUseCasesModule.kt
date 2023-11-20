@@ -1,5 +1,7 @@
 package com.nicomahnic.domain.di
 
+import com.nicomahnic.domain.usecase.DeleteUsersUseCase
+import com.nicomahnic.domain.usecase.DeleteUsersUseCaseImpl
 import com.nicomahnic.domain.usecase.GetUsersUseCase
 import com.nicomahnic.domain.usecase.GetUsersUseCaseImpl
 import com.nicomahnic.domain.usecase.InsertUsersUseCase
@@ -15,8 +17,12 @@ object UserUseCasesModule {
         single<InsertUsersUseCase> {
             InsertUsersUseCaseImpl(userRepository = get())
         }
+        single<DeleteUsersUseCase> {
+            DeleteUsersUseCaseImpl(userRepository = get())
+        }
 //        singleOf(::GetUsersUseCaseImpl) { bind<GetUsersUseCase>()}
 //        singleOf(::InsertUsersUseCaseImpl) { bind<InsertUsersUseCase>()}
+//        singleOf(::DeleteUsersUseCaseImpl) { bind<DeleteUsersUseCase>()}
     }
 
 }

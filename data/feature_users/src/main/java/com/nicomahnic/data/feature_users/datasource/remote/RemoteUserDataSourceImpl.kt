@@ -14,6 +14,17 @@ class RemoteUserDataSourceImpl(
 
     private var firestore = Firebase.firestore
 
+    override suspend fun deleteUsers() {
+        firestore.collection(USERS).get().addOnSuccessListener {
+            it.documents.forEach { documentSnapshot ->
+                firestore
+                    .collection(USERS)
+                    .document(documentSnapshot.id)
+                    .delete()
+            }
+        }
+    }
+
     override suspend fun getUsers(): List<User> {
         val usersSnapShot = firestore.collection(USERS).get().await()
         return usersSnapShot.documents.map {
