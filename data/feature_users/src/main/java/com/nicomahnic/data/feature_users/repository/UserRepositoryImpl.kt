@@ -10,19 +10,19 @@ class UserRepositoryImpl(
 
     override suspend fun getUsers() : List<User> {
         println("NM: UserRepositoryImpl getUsers")
-        remoteUserDataSource.getUsers()
+//        remoteUserDataSource.getUsers()
         return localUserDataSource.getUsers()
     }
 
     override suspend fun insertUser(user: User): Long {
         println("NM: UserRepositoryImpl insertUser")
-        remoteUserDataSource.insertUser(user)
+//        remoteUserDataSource.insertUser(user)
         return localUserDataSource.insertUser(user)
     }
 
     override suspend fun deleteUsers() {
         println("NM: UserRepositoryImpl deleteUsers")
-        remoteUserDataSource.deleteUsers()
+//        remoteUserDataSource.deleteUsers()
         localUserDataSource.deleteUsers()
     }
 
